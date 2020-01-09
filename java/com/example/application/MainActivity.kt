@@ -12,8 +12,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btn.setOnClickListener{
-            //Toast.makeText(this,"click",Toast.LENGTH_LONG).show()
-            startActivity(Intent(this, ResultActivity::class.java))
+            Toast.makeText(this,"click",Toast.LENGTH_LONG).show()
+            val intent = Intent(this, ResultActivity::class.java)
+            intent.putIntegerArrayListExtra("result",
+                ArrayList(LottoNumberMaker.getRandomLottoNumbers())
+            )
+            startActivity(intent)
         }
     }
 }
